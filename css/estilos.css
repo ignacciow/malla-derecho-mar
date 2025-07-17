@@ -4,72 +4,87 @@ body {
   background: #ffe4e1;
   color: #333;
 }
+
 header {
   background: #ffc0cb;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
+  position: relative; /* Para la posición de Miffy */
 }
+
+header .miffy {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: auto;
+}
+
 header h1 {
   margin: 0;
   font-size: 2rem;
 }
+
+/* Grid fluido para años */
 #curriculum {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   padding: 2rem;
 }
-@media (min-width: 1200px) {
-  #curriculum {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+
 .year {
   background: #fff0f5;
   border: 2px solid #f08080;
   border-radius: 1rem;
   padding: 1rem;
 }
+
 .year h2 {
-  margin-top: 0;
+  margin: 0 0 1rem;
   color: #a0205a;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-align: center;
 }
+
+/* Semestres en dos columnas */
 .semesters {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
 .semester {
   background: #ffeef1;
   border: 1px solid #f08080;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
+
 .semester h3 {
-  margin: 0;
+  margin: 0 0 0.5rem;
   font-size: 1.2rem;
   color: #c71585;
+  text-align: center;
 }
+
 .semester ul {
   list-style: none;
   padding: 0;
-  margin: 0.5rem 0 0;
+  margin: 0;
 }
+
 .semester li {
-  margin: 0.25rem 0;
-  padding: 0.25rem 0.5rem;
+  margin: 0.4rem 0;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.2s, transform 0.2s;
+  font-size: 0.9rem;
 }
-.semester li:hover {
+
+/* Hover solo si está disponible */
+.semester li:hover:not(.disabled):not(.approved) {
   background: #ffb6c1;
-}
-.semester li.approved {
-  background: #ff69b4;
-  color: #fff;
-}
-/* Ocultar listado de faltantes */
-#missing { display: none; }
+  transform: sca
