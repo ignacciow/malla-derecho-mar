@@ -28,25 +28,67 @@ header h1 {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #f08080;
+  background: #fff0f5;
 }
 
-#grafo {
-  width: 100%;
-  height: calc(100vh - 80px);
+#grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
 }
 
-/* Estilos de nodos personalizados */
-.vis-network .node {
-  border-width: 2px;
-  border-color: #f08080;
-  background-color: #fff0f5;
+@media (min-width: 800px) {
+  #grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.course-card {
+  background: #fff0f5;
+  border: 2px solid #f08080;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.course-card.approved {
+  background: #ff69b4;
+}
+
+.course-card h3 {
+  margin: 0;
+  font-size: 1rem;
   color: #333;
 }
 
-.vis-network .node:hover {
-  background-color: #ffb6c1;
+.course-card p {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: #555;
 }
 
-.vis-network .selected {
-  background-color: #ff69b4 !important;
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #ff69b4;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+}
+
+#missing {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.9);
+  padding: 1rem;
+  border: 1px solid #f08080;
+  border-radius: 0.5rem;
+  max-width: 200px;
 }
