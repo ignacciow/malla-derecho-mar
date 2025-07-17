@@ -1,73 +1,75 @@
-(async function() {
-  const [cursos, prereq] = await Promise.all([
-    fetch('data/cursos.json').then(r => r.json()),
-    fetch('data/prerequisitos.json').then(r => r.json())
-  ]);
-
-  // Incorporar prerrequisitos dentro de cada curso
-  const cursoMap = cursos.reduce((m, c) => { m[c.codigo] = c; c.prerequisitos = []; return m; }, {});
-  prereq.forEach(p => { if(cursoMap[p.curso]) cursoMap[p.curso].prerequisitos = p.prerequisitos; });
-
-  let approved = new Set();
-
-  const grid = document.getElementById('grid');
-  const missingEl = document.createElement('div');
-  missingEl.id = 'missing';
-  missingEl.innerHTML = '<strong>Disponibles:</strong><ul id="missing-list"></ul>';
-  document.body.appendChild(missingEl);
-
-  function render(filterYear = 'all', filterSem = 'all') {
-    grid.innerHTML = '';
-    const filtered = cursos.filter(c => {
-      if (filterYear !== 'all') {
-        const y = Math.ceil(c.semestre / 2);
-        if (y !== Number(filterYear)) return false;
-      }
-      if (filterSem !== 'all' && c.semestre % 2 !== Number(filterSem) % 2) return false;
-      return true;
-    });
-
-    filtered.forEach(c => {
-      const card = document.createElement('div');
-      card.className = 'course-card' + (approved.has(c.codigo) ? ' approved' : '');
-      card.innerHTML = `
-        <h3>${c.codigo}</h3>
-        <p>${c.nombre}</p>
-        <span class="badge">Sem ${c.semestre}</span>
-      `;
-      card.onclick = () => toggleApprove(c.codigo);
-      grid.appendChild(card);
-    });
-    showMissing();
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffe4e1;
+  color: #333;
+}
+header {
+  background: #ffc0cb;
+  padding: 1rem;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+#curriculum {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+@media (min-width: 1200px) {
+  #curriculum {
+    grid-template-columns: repeat(4, 1fr);
   }
-
-  function toggleApprove(code) {
-    approved.has(code) ? approved.delete(code) : approved.add(code);
-    render(
-      document.getElementById('filterYear').value,
-      document.getElementById('filterSem').value
-    );
-  }
-
-  function showMissing() {
-    const list = document.getElementById('missing-list');
-    list.innerHTML = '';
-    const disponibles = cursos
-      .filter(c => !approved.has(c.codigo))
-      .filter(c => c.prerequisitos.every(pr => approved.has(pr)))
-      .map(c => c.codigo);
-    disponibles.forEach(code => {
-      const li = document.createElement('li');
-      li.textContent = code;
-      list.appendChild(li);
-    });
-  }
-
-  document.getElementById('filterYear').onchange = e =>
-    render(e.target.value, document.getElementById('filterSem').value);
-  document.getElementById('filterSem').onchange = e =>
-    render(document.getElementById('filterYear').value, e.target.value);
-  document.getElementById('reset').onclick = () => { approved.clear(); render(); };
-
-  render();
-})();
+}
+.year {
+  background: #fff0f5;
+  border: 2px solid #f08080;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.year h2 {
+  margin-top: 0;
+  color: #a0205a;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.semesters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.semester {
+  background: #ffeef1;
+  border: 1px solid #f08080;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.semester h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #c71585;
+}
+.semester ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+.semester li {
+  margin: 0.25rem 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.semester li:hover {
+  background: #ffb6c1;
+}
+.semester li.approved {
+  background: #ff69b4;
+  color: #fff;
+}
+/* Ocultar listado de faltantes */
+#missing { display: none; }
