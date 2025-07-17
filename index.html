@@ -2,14 +2,33 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Malla Interactiva Derecho UDP</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <h1>Malla Curricular Derecho UDP</h1>
-  <div id="grafo"></div>
+  <header>
+    <h1>Malla Derecho UDP</h1>
+    <div class="controls">
+      <label for="filterYear">Año:</label>
+      <select id="filterYear">
+        <option value="all">Todos</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <label for="filterSem">Semestre:</label>
+      <select id="filterSem">
+        <option value="all">Todos</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      <button id="reset">Reiniciar aprobadas</button>
+    </div>
+  </header>
+  <main id="grafo"></main>
 
-  <!-- Librería para grafos interactivos -->
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="js/app.js"></script>
 </body>
