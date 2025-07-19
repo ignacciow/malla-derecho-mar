@@ -1,30 +1,24 @@
+/* Global */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   background: #fff0f5;
   color: #333;
 }
 
+/* Header */
 header {
   background: #ffc0cb;
   padding: 1.5rem;
   text-align: center;
-  position: relative;
 }
-
-header .miffy {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-}
-
 header h1 {
   margin: 0;
   font-size: 2rem;
+  font-weight: 600;
 }
 
+/* Grid contenedor */
 #curriculum {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -32,41 +26,43 @@ header h1 {
   padding: 2rem;
 }
 
+/* Año */
 .year {
   background: #ffeef1;
   border: 2px solid #f08080;
   border-radius: 1rem;
   padding: 1rem;
 }
-
 .year h2 {
   text-align: center;
   color: #a0205a;
+  font-weight: 600;
 }
 
+/* Semestres */
 .semesters {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
-
 .semester {
   background: #fff;
   border: 1px solid #f08080;
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
-
 .semester h3 {
   text-align: center;
   color: #c71585;
+  font-weight: 400;
 }
 
+/* Lista de cursos */
 .semester ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-
 .semester li {
   background: #fcdde8;
   padding: 0.5rem;
@@ -76,17 +72,16 @@ header h1 {
   transition: background 0.3s;
   font-size: 0.9rem;
 }
-
 .semester li:hover:not(.disabled):not(.approved) {
   background: #f8a9c2;
 }
 
+/* Estados de curso */
 .semester li.approved {
   background: #ff69b4;
   color: white;
   text-decoration: line-through;
 }
-
 .semester li.disabled {
   opacity: 0.5;
   cursor: not-allowed;
