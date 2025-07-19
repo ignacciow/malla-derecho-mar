@@ -44,7 +44,8 @@
 
         years[y][s].forEach(curso => {
           const li = document.createElement('li');
-          li.textContent = `${curso.codigo} - ${curso.nombre}`;
+          // Mostramos solo el nombre del ramo, no el código:
+          li.textContent = curso.nombre;
 
           if (approved.has(curso.codigo)) {
             li.classList.add('approved');
