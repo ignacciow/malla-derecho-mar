@@ -34,18 +34,18 @@
   { "curso": "DER06415", "prerequisitos": ["DER06224"] },
   { "curso": "DER06416", "prerequisitos": ["DER06214","DER06223"] },
 
-  { "curso": "DER06C_F1", "prerequisitos": ["DER06411","DER06412","DER06413","DER06414","DER06324","CFG6_6"] },
-  { "curso": "DER06OPT1", "prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
-  { "curso": "DER06OPT2", "prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
-  { "curso": "DER06OPT3", "prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
+  { "curso": "DER06C_F1","prerequisitos": ["DER06411","DER06412","DER06413","DER06414","DER06324","CFG6_6"] },
+  { "curso": "DER06OPT1","prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
+  { "curso": "DER06OPT2","prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
+  { "curso": "DER06OPT3","prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
 
-  { "curso": "DER06C_F2", "prerequisitos": ["DER06411","DER06412","DER06413","DER06414","DER06324","CFG6_6"] },
-  { "curso": "DER06511",  "prerequisitos": ["DER06213"] },
-  { "curso": "DER06OPT4", "prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
-  { "curso": "DER06512",  "prerequisitos": ["DER06C_F1"] },
+  { "curso": "DER06C_F2","prerequisitos": ["DER06411","DER06412","DER06413","DER06414","DER06324","CFG6_6"] },
+  { "curso": "DER06511","prerequisitos": ["DER06213"] },
+  { "curso": "DER06OPT4","prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] },
+  { "curso": "DER06512","prerequisitos": ["DER06C_F1"] },
 
-  { "curso": "DER06521",  "prerequisitos": ["DER06415","DER06416","DER06C_F2","DER06511","DER06512"] },
-  { "curso": "DER06522",  "prerequisitos": ["DER06C_F2"] },
-  { "curso": "DER06523",  "prerequisitos": ["DER06C_F2"] },
-  { "curso": "DER06OPT5", "prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] }
+  { "curso": "DER06521","prerequisitos": ["DER06415","DER06416","DER06C_F2","DER06511","DER06512"] },
+  { "curso": "DER06522","prerequisitos": ["DER06C_F2"] },
+  { "curso": "DER06523","prerequisitos": ["DER06C_F2"] },
+  { "curso": "DER06OPT5","prerequisitos": ["DER06321","DER06322","DER06323","DER06324"] }
 ]
