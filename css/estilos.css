@@ -1,90 +1,62 @@
+/* estilos.css */
+:root {
+  --rosa-claro: #ffeef8;
+  --rosa-medio: #ffbfdc;
+  --rosa-fuerte: #ff69b4;
+  --rosa-acento: #ff1493;
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: #ffe4e1;
+  font-family: sans-serif;
+  background-color: var(--rosa-claro);
   color: #333;
 }
 
 header {
-  background: #ffc0cb;
-  padding: 1.5rem;
+  background-color: var(--rosa-medio);
+  padding: 1rem;
   text-align: center;
-  position: relative; /* Para la posición de Miffy */
 }
 
-header .miffy {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: auto;
-}
-
-header h1 {
+h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
-/* Grid fluido para años */
-#curriculum {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
-.year {
-  background: #fff0f5;
-  border: 2px solid #f08080;
-  border-radius: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
   padding: 1rem;
 }
 
-.year h2 {
-  margin: 0 0 1rem;
-  color: #a0205a;
-  font-size: 1.6rem;
-  text-align: center;
-}
-
-/* Semestres en dos columnas */
-.semesters {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.semester {
-  background: #ffeef1;
-  border: 1px solid #f08080;
-  border-radius: 0.5rem;
+.course {
+  background: white;
+  border: 2px solid var(--rosa-medio);
+  border-radius: 8px;
   padding: 0.75rem;
-}
-
-.semester h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-  color: #c71585;
   text-align: center;
-}
-
-.semester ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.semester li {
-  margin: 0.4rem 0;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  font-size: 0.9rem;
+  opacity: 0.4;
+  transition: opacity 0.2s, border-color 0.2s, background-color 0.2s;
+  position: relative;
 }
 
-/* Hover solo si está disponible */
-.semester li:hover:not(.disabled):not(.approved) {
-  background: #ffb6c1;
-  transform: sca
+.course.unlocked { opacity: 1; }
+
+.course.approved {
+  border-color: var(--rosa-fuerte);
+  background-color: #ffe0f4;
+}
+
+.course.approved::after {
+  content: "✔";
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 1.2rem;
+  color: var(--rosa-acento);
+}
