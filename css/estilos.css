@@ -17,6 +17,13 @@ header h1 {
   font-size: 2rem;
   font-weight: 600;
 }
+header .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #a0205a;
+  font-style: italic;
+}
 
 /* Grid contenedor */
 #curriculum {
@@ -34,6 +41,7 @@ header h1 {
   padding: 1rem;
 }
 .year h2 {
+  margin: 0;
   text-align: center;
   color: #a0205a;
   font-weight: 600;
@@ -52,6 +60,7 @@ header h1 {
   padding: 0.5rem;
 }
 .semester h3 {
+  margin: 0;
   text-align: center;
   color: #c71585;
   font-weight: 400;
