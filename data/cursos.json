@@ -1,64 +1,80 @@
-[
-  { "codigo": "DER06111", "nombre": "Fundamentos histórico-sociales del Derecho privado", "semestre": 1, "creditos": 5 },
-  { "codigo": "DER06112", "nombre": "Instituciones Políticas y Derechos Humanos",           "semestre": 1, "creditos": 5 },
-  { "codigo": "DER06113", "nombre": "Taller de razonamiento jurídico",                         "semestre": 1, "creditos": 10 },
-  { "codigo": "DER06114", "nombre": "Taller de investigación y escritura legal",               "semestre": 1, "creditos": 5 },
-  { "codigo": "DER06115", "nombre": "Comunicación oral",                                       "semestre": 1, "creditos": 3 },
+// data.js
+// Semestres 1–2 :contentReference[oaicite:6]{index=6}
+const courses = [
+  // Semestre 1
+  { id: 'DER06111', name: 'Fundamentos histórico-sociales del Derecho privado', prereqs: [] },
+  { id: 'DER06112', name: 'Instituciones Políticas y Derechos Humanos',           prereqs: [] },
+  { id: 'DER06113', name: 'Taller de razonamiento jurídico',                       prereqs: [] },
+  { id: 'DER06114', name: 'Taller de investigación y escritura legal',             prereqs: [] },
+  { id: 'DER06115', name: 'Comunicación oral',                                     prereqs: [] },
 
-  { "codigo": "DER06121", "nombre": "Persona y acto jurídico",                                 "semestre": 2, "creditos": 5 },
-  { "codigo": "DER06122", "nombre": "Derecho Constitucional Orgánico",                         "semestre": 2, "creditos": 5 },
-  { "codigo": "DER06123", "nombre": "Introducción al Derecho I",                               "semestre": 2, "creditos": 5 },
-  { "codigo": "DER06124", "nombre": "Bases Generales del Derecho Procesal",                    "semestre": 2, "creditos": 5 },
-  { "codigo": "CFG1_6",   "nombre": "Curso de Formación General 1",                            "semestre": 2, "creditos": 5 },
-  { "codigo": "CIG1012",  "nombre": "Inglés General I",                                       "semestre": 2, "creditos": 5 },
+  // Semestre 2
+  { id: 'DER06121', name: 'Persona y acto jurídico',             prereqs: ['DER06111'] },
+  { id: 'DER06122', name: 'Derecho Constitucional Orgánico',     prereqs: ['DER06112'] },
+  { id: 'DER06123', name: 'Introducción al Derecho I',           prereqs: ['DER06113'] },
+  { id: 'DER06124', name: 'Bases Generales del Derecho Procesal',prereqs: ['DER06113'] },
+  { id: 'CFG1_6',    name: 'Curso de Formación General I',       prereqs: [] },
+  { id: 'CIG1012',   name: 'Inglés General I',                  prereqs: [] },
 
-  { "codigo": "DER06211", "nombre": "Derechos Reales y Derecho inmobiliario",                  "semestre": 3, "creditos": 5 },
-  { "codigo": "DER06212", "nombre": "Derechos Fundamentales",                                  "semestre": 3, "creditos": 7 },
-  { "codigo": "DER06213", "nombre": "Introducción al Derecho II",                              "semestre": 3, "creditos": 5 },
-  { "codigo": "DER06214", "nombre": "Economía y Derecho (FI)",                                 "semestre": 3, "creditos": 5 },
-  { "codigo": "CFG2_6",   "nombre": "Curso de Formación General 2",                            "semestre": 3, "creditos": 5 },
-  { "codigo": "CIG1013",  "nombre": "Inglés General II",                                      "semestre": 3, "creditos": 5 },
+  // Semestre 3–4 :contentReference[oaicite:7]{index=7}
+  // Semestre 3
+  { id: 'DER06211', name: 'Derechos Reales y derecho inmobiliario', prereqs: ['DER06121'] },
+  { id: 'DER06212', name: 'Derechos Fundamentales',               prereqs: ['DER06122'] },
+  { id: 'DER06213', name: 'Introducción al Derecho II',           prereqs: ['DER06123'] },
+  { id: 'DER06214', name: 'Economía y Derecho (FI)',              prereqs: ['DER06114'] },
+  { id: 'CFG2_6',   name: 'Curso de Formación General II',        prereqs: [] },
+  { id: 'CIG1013',  name: 'Inglés General II',                   prereqs: ['CIG1012'] },
 
-  { "codigo": "DER06221", "nombre": "Derecho de las obligaciones",                            "semestre": 4, "creditos": 5 },
-  { "codigo": "DER06222", "nombre": "Derecho Penal Parte General I",                         "semestre": 4, "creditos": 5 },
-  { "codigo": "DER06223", "nombre": "Taller Destrezas Litigación Oral (ACI)",                 "semestre": 4, "creditos": 5 },
-  { "codigo": "DER06224", "nombre": "Derecho Regulatorio / Derecho Económico",               "semestre": 4, "creditos": 5 },
-  { "codigo": "CFG3_6",   "nombre": "Curso de Formación General 3",                            "semestre": 4, "creditos": 5 },
-  { "codigo": "CIG1014",  "nombre": "Inglés General III",                                     "semestre": 4, "creditos": 5 },
+  // Semestre 4
+  { id: 'DER06221', name: 'Derecho de las obligaciones',                             prereqs: ['DER06211'] },
+  { id: 'DER06222', name: 'Derecho Penal Parte general I',                          prereqs: ['DER06123'] },
+  { id: 'DER06223', name: 'ACI Taller Destrezas Litigación oral',                  prereqs: ['DER06115','DER06124','DER06211','DER06212','DER06213'] },
+  { id: 'DER06224', name: 'Derecho Regulatorio',                                   prereqs: ['DER06214'] },
+  { id: 'CFG3_6',   name: 'Curso de Formación General III',                        prereqs: [] },
+  { id: 'CIG1014',  name: 'Inglés General III',                                   prereqs: ['CIG1013'] },
 
-  { "codigo": "DER06311", "nombre": "Derecho de daños",                                        "semestre": 5, "creditos": 5 },
-  { "codigo": "DER06312", "nombre": "Derecho Internacional Público",                          "semestre": 5, "creditos": 5 },
-  { "codigo": "DER06313", "nombre": "Derecho Penal Parte General II",                         "semestre": 5, "creditos": 5 },
-  { "codigo": "DER06314", "nombre": "Procedimientos judiciales",                              "semestre": 5, "creditos": 5 },
-  { "codigo": "DER06315", "nombre": "Derecho Comercial",                                       "semestre": 5, "creditos": 5 },
-  { "codigo": "CFG4_6",   "nombre": "Curso de Formación General 4",                            "semestre": 5, "creditos": 5 },
+  // Semestre 5–6 :contentReference[oaicite:8]{index=8}
+  // Semestre 5
+  { id: 'DER06311', name: 'Derecho de daños',                                    prereqs: ['DER06221'] },
+  { id: 'DER06312', name: 'Derecho Internacional Público',                      prereqs: ['DER06212'] },
+  { id: 'DER06313', name: 'Derecho Penal Parte general II',                     prereqs: ['DER06213','DER06222'] },
+  { id: 'DER06314', name: 'Procedimientos judiciales',                          prereqs: ['DER06223'] },
+  { id: 'DER06315', name: 'Derecho Comercial',                                   prereqs: ['DER06224'] },
+  { id: 'CFG4_6',   name: 'Curso de Formación General IV',                      prereqs: [] },
 
-  { "codigo": "DER06321", "nombre": "Contratos",                                              "semestre": 6, "creditos": 7 },
-  { "codigo": "DER06322", "nombre": "Derecho Administrativo",                                  "semestre": 6, "creditos": 5 },
-  { "codigo": "DER06323", "nombre": "Derecho Penal Parte Especial",                           "semestre": 6, "creditos": 5 },
-  { "codigo": "DER06324", "nombre": "Derecho Societario",                                      "semestre": 6, "creditos": 5 },
-  { "codigo": "CFG5_6",   "nombre": "Curso de Formación General 5",                            "semestre": 6, "creditos": 5 },
-  { "codigo": "CFG6_6",   "nombre": "Curso de Formación General 6",                            "semestre": 6, "creditos": 5 },
+  // Semestre 6
+  { id: 'DER06321', name: 'Contratos',                                           prereqs: ['DER06114','DER06311'] },
+  { id: 'DER06322', name: 'Derecho Administrativo',                              prereqs: ['DER06223','DER06224'] },
+  { id: 'DER06323', name: 'Derecho Penal parte especial',                        prereqs: ['DER06313'] },
+  { id: 'DER06324', name: 'Derecho Societario',                                  prereqs: ['DER06315'] },
+  { id: 'CFG5_6',   name: 'Curso de Formación General V',                       prereqs: [] },
+  { id: 'CFG6_6',   name: 'Curso de Formación General VI',                      prereqs: [] },
 
-  { "codigo": "DER06411", "nombre": "Derecho de Familia y Sucesorio",                         "semestre": 7, "creditos": 5 },
-  { "codigo": "DER06412", "nombre": "Derecho y Medio Ambiente (FI)",                           "semestre": 7, "creditos": 5 },
-  { "codigo": "DER06413", "nombre": "Proceso Penal",                                           "semestre": 7, "creditos": 5 },
-  { "codigo": "DER06414", "nombre": "Taller de negociación en procesos colaborativos (FI)",      "semestre": 7, "creditos": 5 },
-  { "codigo": "DER06415", "nombre": "Derecho Tributario",                                      "semestre": 7, "creditos": 5 },
-  { "codigo": "DER06416", "nombre": "Derecho del Trabajo",                                     "semestre": 7, "creditos": 5 },
+  // Semestres 7–8 
+  // Semestre 7
+  { id: 'DER06411', name: 'Derecho de familia y sucesorio',                   prereqs: ['DER06321'] },
+  { id: 'DER06412', name: 'Derecho y medio ambiente (FI)',                   prereqs: ['DER06322'] },
+  { id: 'DER06413', name: 'Proceso penal',                                     prereqs: ['DER06323'] },
+  { id: 'DER06414', name: 'Taller de negociación en procesos colaborativos (FI)', prereqs: ['DER06314'] },
+  { id: 'DER06415', name: 'Derecho Tributario',                                prereqs: ['DER06224'] },
+  { id: 'DER06416', name: 'Derecho del Trabajo',                               prereqs: ['DER06214','DER06223'] },
 
-  { "codigo": "DER06C_F1", "nombre": "Clínicas Jurídicas / Pasantía Supervisada (ACI)",     "semestre": 8, "creditos": 12 },
-  { "codigo": "DER06OPT1", "nombre": "Curso Optativo I",                                      "semestre": 8, "creditos": 5 },
-  { "codigo": "DER06OPT2", "nombre": "Curso Optativo II",                                     "semestre": 8, "creditos": 5 },
-  { "codigo": "DER06OPT3", "nombre": "Curso Optativo III",                                    "semestre": 8, "creditos": 5 },
+  // Semestre 8
+  { id: 'DER06C_F1', name: 'ACI Clínicas jurídicas / Pasantía supervisada', prereqs: ['DER06411','DER06412','DER06413','DER06414','DER06324'] },
+  { id: 'DER06OPT1', name: 'Curso optativo I',                              prereqs: ['DER06321','DER06322','DER06323','DER06324'] },
+  { id: 'DER06OPT2', name: 'Curso optativo II',                             prereqs: ['DER06321','DER06322','DER06323','DER06324'] },
+  { id: 'DER06OPT3', name: 'Curso optativo III',                            prereqs: ['DER06321','DER06322','DER06323','DER06324'] },
 
-  { "codigo": "DER06C_F2",  "nombre": "Clínicas Jurídicas 2 / Pasantía Supervisada",        "semestre": 9, "creditos": 12 },
-  { "codigo": "DER06511",   "nombre": "Filosofía del Derecho",                                "semestre": 9, "creditos": 5 },
-  { "codigo": "DER06OPT4",  "nombre": "Curso Optativo IV",                                    "semestre": 9, "creditos": 5 },
-  { "codigo": "DER06512",   "nombre": "Seminario de investigación y escritura jurídica avanzada","semestre": 9, "creditos": 10 },
+  // Semestres 9–10 
+  // Semestre 9
+  { id: 'DER06C_F2', name: 'Clínicas jurídicas 2 / Pasantía supervisada', prereqs: ['DER06411','DER06412','DER06413','DER06414','DER06324'] },
+  { id: 'DER06511', name: 'Filosofía del Derecho',                         prereqs: ['DER06213'] },
+  { id: 'DER06OPT4', name: 'Curso optativo IV',                            prereqs: ['DER06321','DER06322','DER06323','DER06324'] },
+  { id: 'DER06512', name: 'Seminario de investigación y escritura jurídica avanzada', prereqs: ['DER06C_F1'] },
 
-  { "codigo": "DER06521",   "nombre": "Curso de integración y actividad de licenciatura (ACI)", "semestre": 10, "creditos": 18 },
-  { "codigo": "DER06522",   "nombre": "Ética y responsabilidad profesional en la abogacía",     "semestre": 10, "creditos": 3 },
-  { "codigo": "DER06523",   "nombre": "Taller de inserción y emprendimiento profesional",        "semestre": 10, "creditos": 3 },
-  { "codigo": "DER06OPT5",  "nombre": "Curso Optativo V",                                      "semestre": 10, "creditos": 5 }
-]
+  // Semestre 10
+  { id: 'DER06521', name: 'ACI Curso de integración y actividad de licenciatura', prereqs: ['DER06415','DER06416','DER06C_F2','DER06511','DER06512'] },
+  { id: 'DER06522', name: 'Ética y responsabilidad profesional en la abogacía',   prereqs: ['DER06C_F2'] },
+  { id: 'DER06523', name: 'Taller de inserción y emprendimiento profesional',      prereqs: ['DER06C_F2'] },
+  { id: 'DER06OPT5', name: 'Curso optativo V',                                   prereqs: ['DER06321','DER06322','DER06323','DER06324'] },
+];
